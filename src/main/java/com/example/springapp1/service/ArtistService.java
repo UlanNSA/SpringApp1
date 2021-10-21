@@ -18,7 +18,7 @@ public class ArtistService {
         this.artistRepository = artistRepository;
     }
 
-    public List<Artist> getAll(){
-        return artistRepository.findAll();
-    }
+//    public List<Artist> getAll(){
+//        return artistRepository.findAll();
+//    }
 }
