@@ -5,15 +5,17 @@ import com.example.springapp1.database.Artist;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
+
 @Repository
 public interface ArtistRepository {
     List<Artist> findAll();
 
-    Optional<Artist> findByTeacher(String teacher);
+    List<Artist> findByCountry(String country);
 
-    Optional<Artist> findById(int id);
+    List<Artist> findByGenre(String genre);
 
-    Optional<Artist> findByCabinet(int cabinet);
+    List<Artist> findByLabels(String labels);
+
+    List<Artist> flipList();
 }
 

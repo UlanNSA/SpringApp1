@@ -1,6 +1,8 @@
 package com.example.springapp1.database;
 
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -8,6 +10,9 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 @Component
+@Data
+@NoArgsConstructor
+
 public class Artist {
     private int artistId;
     private String firstName;
@@ -15,9 +20,6 @@ public class Artist {
     private String genre;
     private String country;
     private String labels;
-
-    public Artist() {
-    }
 
     public static ArtistBuilder artistBuilder() {
         return new Artist().new ArtistBuilder();
@@ -127,64 +129,15 @@ public class Artist {
         return Arrays.asList(artist1, artist2, artist2, artist3, artist4, artist5, artist6, artist7);
     }
 
-    public int getArtistId() {
-        return artistId;
-    }
 
-    public void setArtistId(int artistId) {
-        this.artistId = artistId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getLabels() {
-        return labels;
-    }
-
-    public void setLabels(String labels) {
-        this.labels = labels;
-    }
 
     @Override
     public String toString() {
-        return "Artist{" +
-                "artistId=" + artistId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", genre='" + genre + '\'' +
-                ", country='" + country + '\'' +
-                ", labels='" + labels + '\'' +
-                '}';
+        return "Artist" +
+                "Id=" + artistId +" " + firstName +" " + lastName + " " +
+                ", genre:'" + genre  +
+                ", country:'" + country +
+                ", labels:'" + labels;
     }
 }
 

@@ -107,6 +107,15 @@ public class Albums {
         return Arrays.asList(albums1, albums2, albums3, albums4, albums5, albums6, albums7, albums8);
     }
 
+    @Override
+    public String toString() {
+        return "Albums" +
+                "albumsId=" + albumsId +
+                ", artistId=" + artistId +
+                ", albName='" + albName + '\'' +
+                ", albStatus='" + albStatus;
+    }
+
     public int getAlbumsId() {
         return albumsId;
     }

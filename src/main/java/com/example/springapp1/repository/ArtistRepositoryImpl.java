@@ -3,30 +3,41 @@ import com.example.springapp1.database.Artist;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 @Component
 public class ArtistRepositoryImpl implements ArtistRepository{
-
+    private ArtistRepository artistRepository;
     @Override
     public List<Artist> findAll() {
         return Artist.getArtist();
     }
 
     @Override
-    public Optional<Artist> findByTeacher(String teacher) {
-        return Optional.empty();
+    public List<Artist> findByCountry(String country) {
+        List<Artist>artists = Artist.getArtist();
+        return artists.stream().filter(s->s.getCountry().equals(country)).collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Artist> findById(int id) {
-        return Optional.empty();
+    public List<Artist> findByGenre(String genre) {
+        List<Artist>artists = Artist.getArtist();
+        return artists.stream().filter(s->s.getGenre().equals(genre)).collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Artist> findByCabinet(int cabinet) {
-        return Optional.empty();
+    public List<Artist> findByLabels(String labels) {
+        List<Artist>artists = Artist.getArtist();
+        return artists.stream().filter(s->s.getLabels().equals(labels)).collect(Collectors.toList());
     }
+
+    @Override
+    public List<Artist> flipList() {
+        List<Artist>artists = Artist.getArtist();
+        return artists.stream().sorted(Comparator.comparingDouble(Artist::getArtistId).reversed()).collect(Collectors.toList());
+    }
+
 }
